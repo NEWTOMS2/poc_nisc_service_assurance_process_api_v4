@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="poc_nisc_service_assurance_process_api_v4-test-suite.xml" />
+	<munit:before-test name="poc_nisc_service_assurance_process_api_v4-test-suiteBefore_Test" description="Before tests actions" doc:id="099b00e1-abef-42e3-93b9-c2f6ae864ca0" >
+		<flow-ref doc:name="setExpectedGetAllNetworkServicesResponse" doc:id="a31b1cf8-dfa7-44d5-bfb3-a5149336ac03" name="setExpectedGetAllNetworkServicesResponse" />
+		<flow-ref doc:name="setExpectedGetByIdNetworkServiceResponse" doc:id="f7ef4872-5bc9-483d-9aa3-acf0a533f655" name="setExpectedGetByIdNetworkServiceResponse" />
+	</munit:before-test>
+	<munit:test name="poc_nisc_service_assurance_process_api_v4-test-suite-get:\network\service:poc_nisc_service_assurance_process_api_v4-configTest" description="Test" doc:id="01e3d820-7f33-4472-b241-fdead33cfc3b" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when call getAllNetworkServiceByFilter" doc:id="d9a0350a-79ff-4346-8c61-8a312c45918c" processor="mule:flow-ref" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute attributeName="name" whereValue="getAllNetworkServiceByFilter" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[vars.expectedGetAllNetworkServicesResponse]" mediaType="application/json" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\network\service:poc_nisc_service_assurance_process_api_v4-config" doc:id="9cddd44c-cefb-4b19-9970-a3e8676cef1d" name="get:\network\service:poc_nisc_service_assurance_process_api_v4-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:verify-call doc:name="Verify call getAllNetworkServiceByFilter" doc:id="0bde6c71-70ab-4a95-841b-f3336c64d4de" processor="mule:flow-ref" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute attributeName="name" whereValue="getAllNetworkServiceByFilter" />
+				</munit-tools:with-attributes>
+			</munit-tools:verify-call>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="poc_nisc_service_assurance_process_api_v4-test-suite-get:\network\service\(id):poc_nisc_service_assurance_process_api_v4-configTest" description="Test" doc:id="dfdfe848-5c0b-4ff8-b7bd-fea5c5476b11" >
+		<munit:behavior >
+			<munit-tools:mock-when doc:name="Mock when call getNetworkServiceById" doc:id="559ae818-8a2b-4f5a-a494-8d54f7be77f8" processor="mule:flow-ref" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute attributeName="name" whereValue="getNetworkServiceById" />
+				</munit-tools:with-attributes>
+				<munit-tools:then-return >
+					<munit-tools:payload value="#[vars.expectedGetByIdNetworkServiceResponse]" mediaType="application/json" />
+				</munit-tools:then-return>
+			</munit-tools:mock-when>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\network\service\(id):poc_nisc_service_assurance_process_api_v4-config" doc:id="5c090a11-9368-4a1f-94f9-f3f5375bdd52" name="get:\network\service\(id):poc_nisc_service_assurance_process_api_v4-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:verify-call doc:name="Verify call getServiceIdFromUri" doc:id="20da770b-53f6-4e72-8eeb-23c6c29fef83" processor="mule:flow-ref">
+				<munit-tools:with-attributes>
+					<munit-tools:with-attribute attributeName="name" whereValue="getServiceIdFromUri" />
+				</munit-tools:with-attributes>
+			</munit-tools:verify-call>
+			<munit-tools:verify-call doc:name="Verify call getNetworkServiceById" doc:id="33568083-ef16-44ad-b8b5-ae76a24a1bdb" processor="mule:flow-ref" >
+				<munit-tools:with-attributes >
+					<munit-tools:with-attribute attributeName="name" whereValue="getNetworkServiceById" />
+				</munit-tools:with-attributes>
+			</munit-tools:verify-call>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
