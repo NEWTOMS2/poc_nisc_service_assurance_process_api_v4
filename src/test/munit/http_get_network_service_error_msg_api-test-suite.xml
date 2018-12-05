@@ -158,9 +158,9 @@ output application/json
 		
 </munit:execution>
 		<munit:validation >
-			<munit-tools:verify-call doc:name="Verify call get:\network\service:poc_nisc_service_assurance_system_api_v4-config" doc:id="0d98ffa8-0620-4052-a2d4-f537bc6edee6" processor="mule:flow" times="0">
+			<munit-tools:verify-call doc:name="Verify call get:\network\service:poc_nisc_service_assurance_process_api_v4-config" doc:id="0d98ffa8-0620-4052-a2d4-f537bc6edee6" processor="mule:flow" times="0">
 				<munit-tools:with-attributes >
-					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_system_api_v4-config" />
+					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_process_api_v4-config" />
 				</munit-tools:with-attributes>
 			</munit-tools:verify-call>
 		
@@ -259,7 +259,7 @@ output application/json
 		<munit:validation >
 			<munit-tools:verify-call doc:name="Verify call" doc:id="d9f5e64b-72a5-4634-8f32-4db4083113f1" processor="mule:flow" times="0">
 				<munit-tools:with-attributes >
-					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_system_api_v4-config" />
+					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_process_api_v4-config" />
 				</munit-tools:with-attributes>
 			</munit-tools:verify-call>
 		
@@ -361,7 +361,7 @@ output application/json
 		<munit:validation >
 			<munit-tools:verify-call doc:name="Verify call" doc:id="12a035b0-ac50-49e4-a9ca-e346af3e84a8" processor="mule:flow" times="0">
 				<munit-tools:with-attributes >
-					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_system_api_v4-config" />
+					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_process_api_v4-config" />
 				</munit-tools:with-attributes>
 			</munit-tools:verify-call>
 		
@@ -485,7 +485,7 @@ output application/json
 		<munit:validation >
 			<munit-tools:verify-call doc:name="Verify call" doc:id="628f5248-bf62-44ae-8cff-2718bdf98431" processor="mule:flow" times="0">
 				<munit-tools:with-attributes >
-					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_system_api_v4-config" />
+					<munit-tools:with-attribute attributeName="name" whereValue="get:\network\service:poc_nisc_service_assurance_process_api_v4-config" />
 				</munit-tools:with-attributes>
 			</munit-tools:verify-call>
 		
